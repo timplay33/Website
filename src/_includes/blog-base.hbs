@@ -1,0 +1,36 @@
+---
+layout: base.hbs
+---
+
+<div class="py-6 bg-base-200">
+  <div class="hero-content flex-col lg:flex-row">
+    <img
+      src="{{feature_image}}"
+      alt="feature_image"
+      class="max-w-full lg:max-w-sm rounded-lg shadow-2xl"
+    />
+    <div>
+      <h1 class="text-3xl font-bold">
+        {{title}}
+      </h1>
+      <p class="py-6">
+        {{excerpt}}
+      </p>
+      <p>
+        by
+        <span class="text-accent">
+          Tim Heidler
+        </span>
+        on
+        <span class="text-accent">
+          {{date date}}
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="flex justify-center">
+  <div id="markdown" class="w-screen text-pretty p-4 lg:w-4/5 py-6">
+    {{{content}}}
+  </div>
+</div>

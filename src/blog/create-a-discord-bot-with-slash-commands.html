@@ -1,0 +1,235 @@
+---
+title: Create a Discord bot with slash commands
+tags: blog
+layout: blog-base.hbs
+excerpt: Create a simple Discord bot with discord slash command support
+date: 2023-11-05
+feature_image: https://theidler.de/content/images/2024/02/create-a-discord-bot-with-slash-commands_img-0.png
+---
+
+<h2 id="getting-started">Getting started</h2>
+<ul>
+	<li>Discord account</li>
+	<li>A coding editor (for example VS Code)</li>
+	<li>Python with pip installed on your PC</li>
+</ul>
+<p>
+	Start up your favorite code editor (in this Tutorial, I'll be using
+	<a href="https://code.visualstudio.com/">VS Code</a>)<br />and open a folder,
+	where you want to create your Discord bot. Next up, open a<br />terminal in
+	your folder. In VS Code, press on "Terminal" at the top of<br />the program
+	and then on "new Terminal".
+</p>
+<figure class="kg-card kg-image-card">
+	<img
+		src=" https://theidler.de/content/images/2024/02/simple_static_blog_img2.png"
+		class="kg-image"
+		alt="https://dxjpnfmwiictipnuacow.supabase.co/storage/v1/object/public/Images/2023-07-17-simple-static-blog-with-11ty-decapcms-and-netlify/simple_static_blog_img2.png"
+		loading="lazy"
+		width="339"
+		height="150"
+	/>
+</figure>
+<p>
+	First, we need to install the discord.py library, which allows python to
+	communicate with discord.
+</p>
+<p>To do so, type the following command in the terminal.</p>
+<pre><code class="language-bash">pip3 install discord.py python-dotenv
+</code></pre>
+<p>
+	Now create your main python file, For example “<strong>index.py</strong>”.
+</p>
+<h3 id="indexpy">index.py</h3>
+<p>
+	First, we are going to import the required library <strong>os</strong>,
+	<strong>load_dotenv</strong> from dotenv and of course
+	<strong>discord</strong>
+</p>
+<pre><code class="language-python">import os
+from dotenv import load_dotenv
+import discord
+</code></pre>
+<p>Next we load the environment variables</p>
+<pre><code class="language-python"># import eviroment variables
+load_dotenv()
+DISCORD_TOKEN = os.environ.get("DISCORD_TOKEN")
+GUILD_ID = os.environ.get("GUILD_ID")
+</code></pre>
+<p>
+	And set the global variables such as <strong>client</strong> which is the
+	object of the bot. The client object contains multiple given functions like
+	the <strong>run()</strong> function which is used at the end of the program to
+	start the bot. The tree object is used to add commands to your bot.
+</p>
+<pre><code class="language-python"># global variables
+intents = discord.Intents.default()
+client = discord.Client(intents=intents)
+tree = discord.app_commands.CommandTree(client)
+</code></pre>
+<p>
+	Next up is the <strong>on_ready()</strong> function, which is executed when
+	the bot is fully started and connected to discord in this function we will for
+	now sync the command tree (all created commands) with discord (Syncing the
+	command tree on start is not recommended for production). The bot will also
+	display a message in the console when it is ready.
+</p>
+<pre><code class="language-python">@client.event
+async def on_ready():
+    await tree.sync(guild=discord.Object(id=GUILD_ID))
+       print(f'We have logged in as {client.user}')
+</code></pre>
+<p>
+	Even though the bare structure of the bot now done, it will do nothing if you
+	try to run it because the bot (client) needs to be executed with:
+</p>
+<pre><code class="language-python">client.run(DISCORD_TOKEN)
+</code></pre>
+<p>The hole <strong>index.py</strong> at this point:</p>
+<pre><code class="language-python">import os
+from dotenv import load_dotenv
+import discord
+
+# import eviroment variables
+load_dotenv()
+DISCORD_TOKEN = os.environ.get("DISCORD_TOKEN")
+GUILD_ID = os.environ.get("GUILD_ID")
+
+# global variables
+intents = discord.Intents.default()
+client = discord.Client(intents=intents)
+tree = discord.app_commands.CommandTree(client)
+
+@client.event
+async def on_ready():
+    await tree.sync(guild=discord.Object(id=GUILD_ID))
+        print(f'We have logged in as {client.user}')
+            
+client.run(DISCORD_TOKEN)
+</code></pre>
+<h2 id="environment-variables">Environment variables</h2>
+<p>
+	Above in the <strong>index.py</strong>, we are loading environment variables,
+	but we haven’t created these yet. To do so, create a new file called
+	“<strong>.env</strong>”
+</p>
+<pre><code>
+DISCORD_TOKEN="paste your bot token here"
+GUILD_ID="paste your guild ID here"
+</code></pre>
+<p>and paste these lines into it.</p>
+<h3 id="obtaining-a-discord-bot-token">Obtaining a discord bot token</h3>
+<p>
+	To obtain a Discord bot token for your bot, head over to
+	<a href="https://discord.com/developers/applications"
+		>https://discord.com/developers/applications</a
+	>
+	and log in with your Discord account. Click at “new Application” and give your
+	bot a name.
+</p>
+<p>
+	In the settings, go to “bot” and under Token you have your bot token. This
+	token is like a password and should not be shared!
+</p>
+<h3 id="invite-bot-to-your-discord-server">
+	Invite bot to your Discord server
+</h3>
+<p>
+	To invite your bot to your discord server, paste your client ID, which can be
+	found at the “General Information” page in the Discord Developer Portal, into
+	this link and open it in your web browser.
+</p>
+<pre><code>
+https://discord.com/oauth2/authorize?client_id=&lt;Paste your Client id here&gt;&amp;permissions=8&amp;scope=bot
+</code></pre>
+<p>
+	This link will allow you to add your bot to your server, while using admin
+	permissions for production you should adjust the permissions to needs.
+</p>
+<h3 id="obtaining-your-guild-id-server-id">
+	Obtaining your guild ID (server ID)
+</h3>
+<p>
+	The easiest way to obtain your guild ID is by opening discord web in your
+	browser, <a href="https://discord.com/">https://discord.com/</a> and going to
+	your server in the URL your guild ID will be the first random string of
+	characters and numbers right behind “/channels/”.
+</p>
+<p>
+	Now add your token and ID into the <strong>.env</strong> and try running the
+	<strong>index.py</strong>.
+</p>
+<pre><code>
+python index.py
+</code></pre>
+<p>
+	If everything is done correctly, the response “We have logged in as
+	Botty#1880” with “Botty#1880” being the name and discriminator of your bot
+	should appear after a while.
+</p>
+<h2 id="adding-a-slash-command">Adding a slash command</h2>
+<p>
+	To add a slash command, we need to add a function to the command tree. First,
+	create an async function called hello like so
+</p>
+<pre><code class="language-python">
+async def hello():
+</code></pre>
+<p>Then give and interaction into the functions arguments</p>
+<pre><code class="language-python">
+async def hello(interaction: discord.Interaction):
+</code></pre>
+<p>
+	Next, you can add the code which is run when the slash command is executed.
+</p>
+<pre><code class="language-python">
+async def hello(interaction: discord.Interaction):
+    await interaction.response.send_message(f"Hey {interaction.user.display_name}! This is a slash command!", ephemeral=True)
+</code></pre>
+<p>
+	In this example, it’s a simple answer answering to the user who executed the
+	command with their name. We also added the “ephemeral=True” argument at the
+	end, with makes the answer only visible to the user who executed the command.
+</p>
+<p>
+	Now, to add this function to the command tree, add the following line above
+	your function.
+</p>
+<pre><code class="language-python">
+@tree.command(name="hello", description="Tells you that you used a slash command")
+</code></pre>
+<p>
+	This will add the command to discord slash command list with the given name
+	and description.
+</p>
+<p>Finally, run your bot again</p>
+<pre><code>
+python index.py
+</code></pre>
+<p>
+	and see how it can answer your “/hello” command in any channel the bot has
+	access to on your Discord server.
+</p>
+<figure class="kg-card kg-image-card">
+	<img
+		src="https://theidler.de/content/images/2024/02/create-a-discord-bot-with-slash-commands_img-1-1.png"
+		class="kg-image"
+		alt="https://dxjpnfmwiictipnuacow.supabase.co/storage/v1/object/public/Images/2023-11-05-create-a-discord-bot-with-slash-commands/create-a-discord-bot-with-slash-commands_img-1.png"
+		loading="lazy"
+		width="415"
+		height="114"
+	/>
+</figure>
+<p>
+	The hole source code to this post can be found on GitHub at
+	<a href="https://github.com/timplay33/Tutorials/tree/main/simple-discord-bot"
+		><a
+			href="https://github.com/timplay33/Tutorials/tree/main/simple-discord-bot"
+			>https://github.com/timplay33/Tutorials/tree/main/simple-discord-bot</a
+		>.
+	</a>
+</p>
+<p>
+	More tutorial like this can be seen at <a href="/">https://theidler.de</a>.
+</p>
+<p>Thanks for reading!</p>

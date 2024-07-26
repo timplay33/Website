@@ -1,0 +1,57 @@
+---
+title: Leitstellenspiel Planner Userscript
+tags: ["project", "blog"]
+layout: blog-base.hbs
+excerpt: lss-planner.user.js, an userscript for the web game Leitstellenspiel.de. The Planner-script adds the option to plan buildings, which can afterward be built with just 2 clicks.
+date: 2024-02-20
+feature_image: https://theidler.de/content/images/2024/02/Screenshot-2024-02-11-231601.png
+---
+
+<h3 id="lss-planneruserjs">lss-planner.user.js</h3>
+<p>
+	An userscript for the web game
+	<a href="https://www.leitstellenspiel.de/"> Leitstellenspiel.de </a>
+	. The Planner-script adds&nbsp;the option to plan buildings, which can then be
+	built with just two clicks.
+</p>
+<h3 id="installation">Installation</h3>
+<p>
+	To use the script, you need to have the
+	<a href="https://www.tampermonkey.net/"> Tampermonkey extension </a>
+	installed in your browser. Then simply click this link (
+	<a href="https://timplay33.github.io/lss-planner.user.js/lss-planner.user.js">
+		https://timplay33.github.io/lss-planner.user.js/lss-planner.user.js
+	</a>
+	) and the Tampermonkey extension should ask you if the script should be
+	installed. Press the installation button.
+</p>
+<h3 id="how-do-i-use-the-script">How do I use the script?</h3>
+<p>
+	The script adds a button to the map. By clicking it, a movable building marker
+	will appear. After moving the marker to the desired position, press the save
+	button, and a new modal will appear. In this modal, you can set the name, and
+	the type and assign one of your build control centers to it. When saved, the
+	provided data will be saved to "IndexedDB", a database located in your local
+	browser's data. The script will then reload the page. On page load, all
+	entries in the IndexedDB will be queried, and a marker will be placed for each
+	entry. Each marker has an on-click event listener, which will open a modal
+	with the corresponding data. All entries are modifiable through either the
+	modal, which opens once a marker is clicked, or the main modal of the script,
+	which is accessible through the user dropdown. All entries in the database are
+	listed on this modal. You may download a copy of your database as JSON from
+	the settings tab of the modal. If required, you may also disable the markers
+	based on their type.
+</p>
+<h3 id="technical-information">Technical information</h3>
+<p>
+	The script on its own is created in TypeScript, which is then bundled by
+	Webpack into a JavaScript file. The userscript file then adds this bundled
+	JavaScript file with a script tag to the page.
+</p>
+<p>
+	The source code for this Script is available at GitHub:
+	<a href="https://github.com/timplay33/lss-planner.user.js">
+		https://github.com/timplay33/lss-planner.user.js
+	</a>
+</p>
+<p>Thanks for reading!</p>

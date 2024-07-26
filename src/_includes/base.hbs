@@ -1,0 +1,13 @@
+---
+layout: skeleton.hbs
+---
+
+<div class="min-h-screen grid grid-rows-[auto_1fr_auto]">
+	{{> nav}}
+	<main class="flex justify-center bg-base-100" >
+		<div class="w-4/5 py-6 break-normal">
+			{{{content}}}
+		</div>
+	</main>
+	{{> footer}}
+</div>
