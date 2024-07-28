@@ -3,6 +3,7 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.setLibrary("hbs", handlebars);
 
 	eleventyConfig.addPassthroughCopy("assets");
+	eleventyConfig.addPassthroughCopy("src/robots.txt");
 	eleventyConfig.addPassthroughCopy("src/favicon.png");
 
 	eleventyConfig.addPairedShortcode("year", function () {
@@ -10,6 +11,9 @@ module.exports = (eleventyConfig) => {
 	});
 	eleventyConfig.addPairedShortcode("date", function (_, date) {
 		return new Date(date).toDateString();
+	});
+	eleventyConfig.addPairedShortcode("dateISO", function (_, date) {
+		return new Date(date).toISOString();
 	});
 
 	eleventyConfig.addPairedShortcode("reverse", function (_, arr) {
