@@ -4,7 +4,7 @@ tags: blog
 layout: blog-base.hbs
 excerpt: Deploying a simple static blog with 11ty, DecapCMS on Netlify for free
 date: 2023-07-17
-feature_image: https://theidler.de/content/images/2024/02/simple_static_blog_img0.png
+feature_image: /assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/feature.png
 ---
 
 <h2 id="getting-started">Getting started</h2>
@@ -28,7 +28,7 @@ feature_image: https://theidler.de/content/images/2024/02/simple_static_blog_img
 </p>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img2-1.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/vs-code-terminal.png"
 		class="kg-image"
 		alt="image of the Terminal tap"
 		loading="lazy"
@@ -60,7 +60,7 @@ npm install @11ty/eleventy --save-dev
 </p>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img3.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/package-js.png"
 		class="kg-image"
 		alt="image of the package.js file"
 		loading="lazy"
@@ -153,16 +153,12 @@ module.exports = function (eleventyConfig) &lbrace;
 </p>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img4.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/terminal-url.png"
 		class="kg-image"
 		alt="image of the terminal showing the link to the webpage"
 		loading="lazy"
 		width="687"
 		height="189"
-		srcset="
-			https://theidler.de/content/images/size/w600/2024/02/simple_static_blog_img4.png 600w,
-			https://theidler.de/content/images/2024/02/simple_static_blog_img4.png           687w
-		"
 	/>
 </figure>
 <p>
@@ -171,7 +167,7 @@ module.exports = function (eleventyConfig) &lbrace;
 </p>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img5.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/h1-browser.png"
 		class="kg-image"
 		alt="image of the h1 headline in the browser"
 		loading="lazy"
@@ -235,7 +231,7 @@ eleventyConfig.addPassthroughCopy("./src/style.css");
 <p>Now the style should be applied.</p>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img6.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/h1-browser-style.png"
 		class="kg-image"
 		alt="image of the h1 headline in the browser with the style applied"
 		loading="lazy"
@@ -400,7 +396,7 @@ this is my first post.
 </p>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img7.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/recent-posts.png"
 		class="kg-image"
 		alt="image of the blog page displaying the newly created post"
 		loading="lazy"
@@ -410,7 +406,7 @@ this is my first post.
 </figure>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img8.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/first-post.png"
 		class="kg-image"
 		alt="image of the contents of the blog post"
 		loading="lazy"
@@ -460,7 +456,7 @@ git init -b main
 </p>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img9.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/git-commit.png"
 		class="kg-image"
 		alt="image of VS Code commiting the repository"
 		loading="lazy"
@@ -481,7 +477,7 @@ git init -b main
 </p>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img10.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/netlify-new-site.png"
 		class="kg-image"
 		alt="image of Netlify adding a new site"
 		loading="lazy"
@@ -492,17 +488,12 @@ git init -b main
 <p>On the next page, select GitHub.</p>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img11.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/netlify-import.png"
 		class="kg-image"
 		alt="image of selection github"
 		loading="lazy"
 		width="767"
 		height="531"
-		srcset="
-			https://theidler.de/content/images/size/w600/2024/02/simple_static_blog_img11.png 600w,
-			https://theidler.de/content/images/2024/02/simple_static_blog_img11.png           767w
-		"
-		sizes="(min-width: 720px) 720px"
 	/>
 </figure>
 <p>
@@ -621,18 +612,12 @@ eleventyConfig.addPassthroughCopy("./src/admin/");
 </pre>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img12.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/netlify-inject.png"
 		class="kg-image"
 		alt="Image of code injection"
 		loading="lazy"
 		width="1077"
 		height="597"
-		srcset="
-			https://theidler.de/content/images/size/w600/2024/02/simple_static_blog_img12.png   600w,
-			https://theidler.de/content/images/size/w1000/2024/02/simple_static_blog_img12.png 1000w,
-			https://theidler.de/content/images/2024/02/simple_static_blog_img12.png            1077w
-		"
-		sizes="(min-width: 720px) 720px"
 	/>
 </figure>
 <p>
@@ -648,23 +633,18 @@ eleventyConfig.addPassthroughCopy("./src/admin/");
 </p>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img13.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/mail.png"
 		class="kg-image"
 		alt="image of invitation"
 		loading="lazy"
 		width="775"
 		height="242"
-		srcset="
-			https://theidler.de/content/images/size/w600/2024/02/simple_static_blog_img13.png 600w,
-			https://theidler.de/content/images/2024/02/simple_static_blog_img13.png           775w
-		"
-		sizes="(min-width: 720px) 720px"
 	/>
 </figure>
 <p>In the new window, set a password for your account.</p>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img14.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/netlify-signup.png"
 		class="kg-image"
 		alt="image of password creation"
 		loading="lazy"
@@ -679,19 +659,12 @@ eleventyConfig.addPassthroughCopy("./src/admin/");
 </p>
 <figure class="kg-card kg-image-card">
 	<img
-		src="https://theidler.de/content/images/2024/02/simple_static_blog_img15.png"
+		src="/assets/img/blog/simple-static-blog-with-11ty-decapcms-and-netlify/decapcms.png"
 		class="kg-image"
 		alt="image of the DecapCMS interface"
 		loading="lazy"
 		width="1921"
 		height="923"
-		srcset="
-			https://theidler.de/content/images/size/w600/2024/02/simple_static_blog_img15.png   600w,
-			https://theidler.de/content/images/size/w1000/2024/02/simple_static_blog_img15.png 1000w,
-			https://theidler.de/content/images/size/w1600/2024/02/simple_static_blog_img15.png 1600w,
-			https://theidler.de/content/images/2024/02/simple_static_blog_img15.png            1921w
-		"
-		sizes="(min-width: 720px) 720px"
 	/>
 </figure>
 <p>Thanks for reading!</p>
@@ -703,5 +676,5 @@ eleventyConfig.addPassthroughCopy("./src/admin/");
 </p>
 <p>
 	more of my stuff at
-	<a href="/"> https://theidler.de </a>
+	<a href="/"> https://theidler.de</a>
 </p>
