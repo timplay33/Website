@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     {{#each collections.all}}
         <url>
-            <loc>{{ this.page.url }}</loc>
+            <loc>https://theidler.de{{ this.page.url }}</loc>
             <lastmod>{{ dateISO this.page.date }}</lastmod>
         </url>
     {{/each}}
