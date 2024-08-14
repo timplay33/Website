@@ -3,5 +3,4 @@ _site
 css
 .env
 .log
-package-lock.json
 .DS_Store
