@@ -6,6 +6,11 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addPassthroughCopy("src/robots.txt");
 	eleventyConfig.addPassthroughCopy("src/favicon.png");
 
+	eleventyConfig.addHandlebarsHelper('limit', function (arr, limit) {
+		if (!Array.isArray(arr)) { return []; }
+		return arr.slice(0, limit);
+	  });
+
 	eleventyConfig.addPairedShortcode("year", function () {
 		return new Date().getFullYear();
 	});

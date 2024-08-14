@@ -5,8 +5,62 @@ layout: base.hbs
 <div class="flex justify-center">
 	<div id="markdown" class="w-4/5 py-6">
 		<h1>hello, world!</h1>
+    <p>Hi, I'm Tim</p>
+    <p>for more information see <a href="/about">About Me</a></p>
+		
 	</div>
 </div>
-{{> projects}}	
-
-
+<div class="text-center py-6">
+  <div>
+    <h2 class="text-3xl font-bold">
+      Latest Posts
+    </h2>
+  </div>
+  <div class="flex flex-row flex-wrap justify-center">
+    {{#each (limit collections.blog 2)}}
+      <div class="carousel-item m-5">
+        <a href="{{this.url}}">
+          <div class="card w-96 bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="{{this.data.feature_image}}"
+                alt="feature_image"
+                class="w-full h-52 object-cover"
+                loading="lazy"
+              />
+            </figure>
+            <div class="card-body">
+              <div class="h-40 overflow-hidden">
+                <h2 class="card-title">
+                  {{this.data.title}}
+                </h2>
+                <p class="h-3"></p>
+                <p>
+                  by
+                  <span class="text-accent">
+                    Tim Heidler
+                  </span>
+                  on
+                  <span class="text-accent">
+                    {{date this.page.date}}
+                  </span>
+                </p>
+                <p class="h-3"></p>
+                <p>
+                  {{this.data.excerpt}}
+                </p>
+              </div>
+              <div class="card-actions justify-end">
+                <a href="{{this.page.url}}" class="btn btn-primary">
+                  Continue Reading
+                </a>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    {{/each}}
+  </div>
+  <a href="/blog" class="btn btn-primary mt-5">See More</a>
+  </div>
+</div>
