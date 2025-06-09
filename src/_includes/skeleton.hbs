@@ -6,8 +6,20 @@
 		<link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
 		<title>{{title}} | Tim Heidler</title>
 		<meta name="description" content="{{excerpt}}" />
-	</head>
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    </head>
 	<body >
 		{{{content}}}
 	</body>
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", (user) => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
 </html>

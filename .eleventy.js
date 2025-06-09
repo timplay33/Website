@@ -5,6 +5,7 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addPassthroughCopy("assets");
 	eleventyConfig.addPassthroughCopy("src/robots.txt");
 	eleventyConfig.addPassthroughCopy("src/favicon.png");
+	eleventyConfig.addPassthroughCopy("src/admin/");
 
 	eleventyConfig.addHandlebarsHelper('limit', function (arr, limit) {
 		if (!Array.isArray(arr)) { return []; }
