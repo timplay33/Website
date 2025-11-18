@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@source "../../src/**/*.{html,hbs}";
+@plugin "daisyui" {
+  themes: light, dark;
+};
 
 h1 {
 	@apply text-primary;
