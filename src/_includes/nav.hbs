@@ -2,33 +2,13 @@
   <span class="text-lg text-center m-4">
     Tim Heidler
   </span>
-  <ul
-    class="flex flex-wrap justify-around w-screen lg:max-w-fit gap-2 self-center"
-  >
-    <li>
-      <a class="btn font-normal" href="/">
-        Home
-      </a>
-    </li>
-    <li>
-      <a class="btn font-normal" href="/about">
-        About
-      </a>
-    </li>
-    <li>
-      <a class="btn font-normal" href="/github">
-        GitHub
-      </a>
-    </li>
-    <li>
-      <a class="btn font-normal" href="/blog">
-        Blog
-      </a>
-    </li>
-    <li>
-      <a class="btn font-normal" href="/links">
-        Links
-      </a>
-    </li>
-  </ul>
+  <div class="flex justify-around w-screen" >
+    <div role="tablist" class="tabs tabs-border">
+      <a role="tab" class="tab {{isActive page.url '/'}}" href="/">Home</a>
+      <a role="tab" class="tab {{isActive page.url '/about'}}" href="/about">About</a>
+      <a role="tab" class="tab {{isActive page.url '/github'}}" href="/github">GitHub</a>
+      <a role="tab" class="tab {{isActive page.url '/blog'}}" href="/blog">Blog</a>
+      <a role="tab" class="tab {{isActive page.url '/links'}}" href="/links">Links</a>
+    </div>
+  </div>
 </nav>

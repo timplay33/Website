@@ -12,6 +12,24 @@ module.exports = (eleventyConfig) => {
 		return arr.slice(0, limit);
 	  });
 
+	// helper to set `tab-active` on the current nav link
+	eleventyConfig.addHandlebarsHelper('isActive', function (pageUrl, link) {
+		function normalize(u) {
+			if (!u) return "/";
+			u = String(u);
+			// strip query and hash
+			u = u.split(/[?#]/)[0];
+			if (!u.startsWith("/")) u = "/" + u;
+			// remove trailing index.html
+			u = u.replace(/\/index\.html$/i, "");
+			// remove trailing slashes
+			u = u.replace(/\/+$/g, "");
+			return u === "" ? "/" : u;
+		}
+
+		return normalize(pageUrl) === normalize(link) ? "tab-active" : "";
+	});
+
 	eleventyConfig.addPairedShortcode("year", function () {
 		return new Date().getFullYear();
 	});
