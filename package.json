@@ -13,10 +13,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy": "^3.1.6",
     "@tailwindcss/cli": "^4.1.17",
     "concurrently": "^8.2.0",
     "daisyui": "^5.5.5",
     "tailwindcss": "^4.1.17"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.9"
   }
 }
