@@ -24,5 +24,8 @@
   },
   "dependencies": {
     "handlebars": "^4.7.9"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.5.1": true
   }
 }
